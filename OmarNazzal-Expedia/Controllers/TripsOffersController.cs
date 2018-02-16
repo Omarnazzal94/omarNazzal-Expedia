@@ -50,7 +50,8 @@ namespace OmarNazzalExpedia.Controllers
             }
             Trips trips = JsonConvert.DeserializeObject<Trips>(tripsOffers);
             ViewBag.Hotels = trips.offers.Hotel;
-
+            if (ViewBag.Hotels == null)
+                ViewBag.Hotels = "";
             return View();
         }
 
