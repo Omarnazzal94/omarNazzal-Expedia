@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Expedia Offers";
+}
+
+
+
+<table class="table table-hover">
+    <tr>
+
+        <th>Hotel Name</th>
+        <th>
+            City @using (Html.BeginForm("Filter", "TripsOffers", FormMethod.Post, new { id = "frmAction" }))
+    {
+
+        <input name="city" type="text" class="text-capitalize" id="city" placeholder="Filter By City" />
+}
+        </th>
+        <th>Province</th>
+        <th>Hotel Photo</th>
+        <th>Travel Days</th>
+        <th>Rating</th>
+    </tr>
+
+
+
+
+    @foreach (var hotel in ViewBag.Hotels)
+    {
+
+        <tr>
+            <td>@hotel.hotelInfo.hotelName</td>
+            <td>@hotel.destination.city</td>
+            <td>@hotel.destination.province</td>
+            <td><img src="@hotel.hotelInfo.hotelImageUrl" /></td>
+            <td>@hotel.offerDateRange.lengthOfStay</td>
+            <td>@hotel.hotelInfo.hotelStarRating</td>
+        </tr>
+
+
+    }
+
+
+</table>      
